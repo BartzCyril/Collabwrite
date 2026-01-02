@@ -1,0 +1,35 @@
+name: API CI
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  test-api:
+    name: Run API tests
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: collabwrite-api
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: collabwrite-api/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm test --silent
+
+
