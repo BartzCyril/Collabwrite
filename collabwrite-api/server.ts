@@ -1,3 +1,4 @@
+import "dotenv/config"; // must run before other imports read process.env (ESM hoists imports)
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
