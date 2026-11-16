@@ -2,6 +2,8 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import express, { type Request, type Response } from "express";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import authRoutes from "./src/routes/auth.routes.js";
 import folderRoutes from "./src/routes/folder.routes.js";
 import documentRoutes from "./src/routes/document.routes.js";
@@ -36,8 +38,11 @@ app.use('/api/invite', inviteRoutes);
 app.use('/api/document', documentRoutes);
 app.use('/api/messages', messageRoutes);
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
+// Serve the built frontend (../collabwrite-frontend/dist) with SPA fallback for client routes
+const dist = path.join(path.dirname(fileURLToPath(import.meta.url)), "../collabwrite-frontend/dist");
+app.use(express.static(dist));
+app.get("/{*splat}", (req: Request, res: Response) => {
+  res.sendFile(path.join(dist, "index.html"));
 });
 
 // Middleware de gestion d'erreurs (doit être le dernier)
