@@ -19,7 +19,7 @@ export const adminController = {
   // Bloquer/Débloquer un utilisateur
   async toggleUserBlock(req: AuthRequest, res: Response) {
     try {
-      const { userId } = req.params;
+      const { userId } = req.params as { userId: string };
       const { isBlocked } = req.body;
 
       if (!userId) {
@@ -45,7 +45,7 @@ export const adminController = {
   // Modifier les informations d'un utilisateur
   async updateUser(req: AuthRequest, res: Response) {
     try {
-      const { userId } = req.params;
+      const { userId } = req.params as { userId: string };
       const { fullName, email, role } = req.body;
 
       if (!userId) {

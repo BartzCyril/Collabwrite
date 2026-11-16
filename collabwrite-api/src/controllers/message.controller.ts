@@ -9,7 +9,7 @@ export const messageController = {
    */
   async getMessages(req: AuthRequest, res: Response) {
     try {
-      const { documentId } = req.params;
+      const { documentId } = req.params as { documentId: string };
       const userId = req.userId;
 
       if (!userId) {
@@ -59,7 +59,7 @@ export const messageController = {
    */
   async createMessage(req: AuthRequest, res: Response) {
     try {
-      const { documentId } = req.params;
+      const { documentId } = req.params as { documentId: string };
       const { content } = req.body;
       const userId = req.userId;
 
@@ -122,7 +122,7 @@ export const messageController = {
    */
   async deleteMessage(req: AuthRequest, res: Response) {
     try {
-      const { messageId } = req.params;
+      const { messageId } = req.params as { messageId: string };
       const userId = req.userId;
 
       if (!userId) {
