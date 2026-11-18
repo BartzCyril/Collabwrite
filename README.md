@@ -10,7 +10,7 @@
 ![Socket.io](https://img.shields.io/badge/Socket.io-010101?logo=socketdotio&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 
-**👉 Voir le site : [collabwrite.qota7916.odns.fr](https://collabwrite.qota7916.odns.fr)** (temps réel, chat et e-mails désactivés sur la démo)
+**👉 Voir le site : [collabwrite.bartzcyril.fr](https://collabwrite.bartzcyril.fr)** (temps réel, chat et e-mails désactivés sur la démo)
 
 ## Sujet
 
